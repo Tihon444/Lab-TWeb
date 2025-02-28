@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('imagini/e-class213.jpg') no-repeat center center/cover;
+            filter: blur(0px);
+            animation: blurEffect 1.5s ease-in-out forwards;
+            z-index: -1;
+        }
+
+        @keyframes blurEffect {
+            from { filter: blur(0px); }
+            to { filter: blur(5px); }
+        }
+
+        .container {
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto 0;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+            background: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>E-Class</h1>
+        <p>Un sedan business de lux, care combină eleganța, tehnologia avansată și performanța.</p>
+        
+        <p><strong>Caracteristici principale:</strong></p>
+        <ul>
+            <li>Interior de înaltă clasă cu materiale premium</li>
+            <li>Panou de bord digital cu MBUX (Mercedes-Benz User Experience)</li>
+            <li>Motorizări eficiente, inclusiv variante plug-in hybrid</li>
+            <li>Sisteme avansate de siguranță și asistență la condus</li>
+            <li>Suspensie adaptivă pentru un confort superior</li>
+        </ul>
+
+        <p>E-Class este alegerea perfectă pentru cei care caută rafinament și inovație într-un pachet premium.</p>
+
+        <button class="btn" onclick="location.href='3page.html'">Înapoi</button>
+    </div>
+</body>
+</html>

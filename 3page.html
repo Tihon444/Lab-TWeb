@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz - Informații</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            opacity: 1;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards 0.5s;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 30%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: scale(0.9);
+            opacity: 0;
+            animation: popIn 0.8s ease-out forwards 1s;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('imagini/mercedes-e-class-s-class.png') no-repeat center center/cover;
+            filter: blur(15px);
+            opacity: 1;
+            animation: blurFadeOut 2s ease-in forwards;
+            z-index: -1;
+        }
+
+        @keyframes blurFadeOut {
+            from { filter: blur(15px); }
+            to { filter: blur(5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="1start.html" class="logo-container">
+        <img src="imagini/mercedes-logo.png" alt="Mercedes Logo">
+    </a>
+
+    <div class="container">
+        <h1>Mercedes-Benz</h1>
+        <h1>Simbol al Luxului și Inovației</h1>
+        <p>Mercedes-Benz este unul dintre cei mai prestigioși producători auto din lume, recunoscut pentru vehiculele sale premium, inovațiile tehnologice și performanța de excepție. Top clase din acest brand:</p>
+        
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>E-Class</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="imagini/e-class.jpg" alt="Mercedes E-Class" onclick="location.href='4page.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Model business de lux</td>
+                </tr>
+                <tr>
+                    <td>Tehnologie avansată</td>
+                </tr>
+                <tr>
+                    <td>Dinamică</td>
+                </tr>
+            </table>
+            
+            <table>
+                <tr>
+                    <th>S-Class</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="imagini/s-class.jpg" alt="Mercedes S-Class" onclick="location.href='5page.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Flagship-ul Mercedes</td>
+                </tr>
+                <tr>
+                    <td>Confort și inovație</td>
+                </tr>
+                <tr>
+                    <td>Etalon în industria auto</td>
+                </tr>
+            </table>
+            
+            <table>
+                <tr>
+                    <th>G-Class</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="imagini/g-class.png" alt="Mercedes G-Class" onclick="location.href='6page.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Legendă off-road</td>
+                </tr>
+                <tr>
+                    <td>Design iconic</td>
+                </tr>
+                <tr>
+                    <td>Tracțiune integrală</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre Mercedes-Benz</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://www.stratstone.com/-/media/stratstone/blog/2022/what-is-mercedes-4matic/mercedes-amg-e-class-1920x774px.ashx') no-repeat center center/cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .content {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+            margin-left: 50px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .content:hover {
+            transform: translateY(-10px);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        a.button {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #ffcc00;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #ff9900;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="1start.html" class="logo-container">
+        <img src="imagini/mercedes-logo.png" alt="Mercedes Logo">
+    </a>
+
+    <div class="content">
+        <h1>Mercedes-Benz</h1>
+        <p>Un simbol al rafinamentului, eleganței și performanței excepționale. Fiecare detaliu al unui Mercedes reflectă pasiunea pentru inovație și design de clasă, creând o experiență de conducere care combină confortul cu puterea.</p>
+        <a href="3page.html" class="button">Descoperă mai multe</a>
+    </div>
+
+</body>
+</html>
