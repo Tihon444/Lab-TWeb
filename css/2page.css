@@ -73,3 +73,71 @@ a.button:hover {
     background-color: #ff9900;
     transform: scale(1.05);
 }
+
+.auth-icons {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.auth-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    width: 120px;
+    height: 40px; 
+    font-size: 14px; 
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #1a73e8;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    border-radius: 20px; 
+    padding-left: 40px; 
+    position: relative;
+}
+
+.auth-button::before {
+    content: '→'; 
+    position: absolute;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.login-button {
+    background-color: #8d8d8d;
+}
+
+.login-button::before {
+    content: '→'; 
+}
+
+.login-button:hover {
+    background-color: #6f6f6f;
+    transform: scale(1.05);
+}
+
+.register-button {
+    background-color: #8d8d8d;
+    padding-left: 40px;
+}
+
+.register-button::before {
+    content: '+';
+}
+
+.register-button:hover {
+    background-color: #6f6f6f;
+    transform: scale(1.05);
+}

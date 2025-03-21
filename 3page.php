@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <a href="1start.html" class="logo-container">
+    <a href="1start.php" class="logo-container">
         <img src="imagini/mercedes-logo.png" alt="Mercedes Logo">
     </a>
 
@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="imagini/e-class.jpg" alt="Mercedes E-Class" onclick="location.href='4page.html'">
+                        <img src="imagini/e-class.jpg" alt="Mercedes E-Class" onclick="location.href='4page.php'">
                     </td>
                 </tr>
                 <tr>
@@ -44,7 +44,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="imagini/s-class.jpg" alt="Mercedes S-Class" onclick="location.href='5page.html'">
+                        <img src="imagini/s-class.jpg" alt="Mercedes S-Class" onclick="location.href='5page.php'">
                     </td>
                 </tr>
                 <tr>
@@ -64,7 +64,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="imagini/g-class.png" alt="Mercedes G-Class" onclick="location.href='6page.html'">
+                        <img src="imagini/g-class.png" alt="Mercedes G-Class" onclick="location.href='6page.php'">
                     </td>
                 </tr>
                 <tr>

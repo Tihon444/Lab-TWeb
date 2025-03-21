@@ -23,7 +23,7 @@
 
         <p>S-Class reprezintă standardul suprem în ceea ce privește eleganța și inovația în industria auto.</p>
 
-        <button class="btn" onclick="location.href='3page.html'">Înapoi</button>
+        <button class="btn" onclick="location.href='3page.php'">Înapoi</button>
     </div>
     <script src="js/5page.js"></script>
 </body>

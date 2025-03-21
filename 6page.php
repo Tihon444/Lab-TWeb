@@ -23,7 +23,7 @@
 
         <p>G-Class este un simbol al puterii, luxului și aventurii, perfect atât pentru oraș, cât și pentru teren accidentat.</p>
 
-        <button class="btn" onclick="location.href='3page.html'">Înapoi</button>
+        <button class="btn" onclick="location.href='3page.php'">Înapoi</button>
     </div>
     <script src="js/6page.js"></script>
 </body>

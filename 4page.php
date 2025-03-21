@@ -24,7 +24,7 @@
 
         <p>E-Class este alegerea perfectă pentru cei care caută rafinament și inovație într-un pachet premium.</p>
 
-        <button class="btn" onclick="location.href='3page.html'">Înapoi</button>
+        <button class="btn" onclick="location.href='3page.php'">Înapoi</button>
     </div>
     <script src="js/4page.js"></script>
 </body>
