@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Email invalid!";
+        echo "Adresa de Email trebuie sa conțină simbolul @";
         exit;
     }
 

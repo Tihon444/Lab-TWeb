@@ -1,40 +1,49 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const fullnameInput = document.getElementById("fullname");
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-    const registerButton = document.getElementById("registerButton");
+$(document).ready(function () {
+    const fullnameInput = $("#fullname");
+    const emailInput = $("#email");
+    const passwordInput = $("#password");
+    const registerButton = $("#registerButton");
 
     function checkInputs() {
-        if (fullnameInput.value.trim() !== "" && emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
-            registerButton.removeAttribute("disabled");
+        if (
+            fullnameInput.val().trim() !== "" &&
+            emailInput.val().trim() !== "" &&
+            passwordInput.val().trim() !== ""
+        ) {
+            registerButton.prop("disabled", false);
         } else {
-            registerButton.setAttribute("disabled", "true");
+            registerButton.prop("disabled", true);
         }
     }
 
-    fullnameInput.addEventListener("input", checkInputs);
-    emailInput.addEventListener("input", checkInputs);
-    passwordInput.addEventListener("input", checkInputs);
+    fullnameInput.on("input", checkInputs);
+    emailInput.on("input", checkInputs);
+    passwordInput.on("input", checkInputs);
 
-    registerButton.addEventListener("click", function () {
-        const fullname = fullnameInput.value.trim();
-        const email = emailInput.value.trim();
-        const password = passwordInput.value;
+    registerButton.on("click", function () {
+        const fullname = fullnameInput.val().trim();
+        const email = emailInput.val().trim();
+        const password = passwordInput.val();
 
-        fetch("../users/register.php", {
+        $.ajax({
+            url: "../users/register.php",
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: `fullname=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
-        })
-        .then(response => response.text())
-        .then(data => {
-            if (data === "success") {
-               alert("Înregistrare reușită!");
-                window.location.href = "7pagelogin.php"; 
-            } else {
-                alert(data); 
+            data: {
+                fullname: fullname,
+                email: email,
+                password: password
+            },
+            success: function (data) {
+                if (data === "success") {
+                    alert("Înregistrare reușită!");
+                    window.location.href = "7pagelogin.php";
+                } else {
+                    alert(data);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Eroare:", error);
             }
-        })
-        .catch(error => console.error("Eroare:", error));
+        });
     });
 });
