@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerButton = document.getElementById("registerButton");
 
     function checkInputs() {
-        const fullname = fullnameInput.value.trim();
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        registerButton.disabled = fullname === "" || email === "" || password === "";
+        if (fullnameInput.value.trim() !== "" && emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
+            registerButton.removeAttribute("disabled");
+        } else {
+            registerButton.setAttribute("disabled", "true");
+        }
     }
 
     fullnameInput.addEventListener("input", checkInputs);
@@ -19,22 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
     registerButton.addEventListener("click", function () {
         const fullname = fullnameInput.value.trim();
         const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
+        const password = passwordInput.value;
 
-        if (!fullname || !email || !password) {
-            alert("Toate câmpurile sunt obligatorii!");
-            return;
-        }
-
-        localStorage.setItem("fullname", fullname);
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
-
-        console.log("Date salvate în Local Storage:");
-        console.log("Fullname:", localStorage.getItem("fullname"));
-        console.log("Email:", localStorage.getItem("email"));
-        console.log("Password:", localStorage.getItem("password"));
-
-        window.location.href = "7pagelogin.php";
+        fetch("../users/register.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `fullname=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data === "success") {
+               alert("Înregistrare reușită!");
+                window.location.href = "7pagelogin.php"; 
+            } else {
+                alert(data); 
+            }
+        })
+        .catch(error => console.error("Eroare:", error));
     });
 });

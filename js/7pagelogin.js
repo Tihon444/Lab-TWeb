@@ -29,9 +29,7 @@ function showMessage(message, color = "darkred") {
     setTimeout(() => {
         msgBox.style.opacity = "0";
         setTimeout(() => {
-            if (msgBox) {
-                msgBox.remove();
-            }
+            if (msgBox) msgBox.remove();
         }, 500);
     }, 3000);
 }
@@ -42,14 +40,6 @@ document.getElementById("nextButton").addEventListener("click", function () {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
-    const savedEmail = localStorage.getItem("email");
-    const savedPassword = localStorage.getItem("password");
-
-    console.log("Email introdus:", email);
-    console.log("Parolă introdusă:", password);
-    console.log("Email salvat:", savedEmail);
-    console.log("Parolă salvată:", savedPassword);
-
     if (!email || !password) {
         showMessage("Toate câmpurile sunt obligatorii!");
         emailInput.classList.toggle("input-error", !email);
@@ -57,28 +47,32 @@ document.getElementById("nextButton").addEventListener("click", function () {
         return;
     }
 
-    if (!savedEmail || !savedPassword) {
-        showMessage("Nu există date înregistrate! Te rugăm să te înregistrezi.", "darkorange");
-        return;
-    }
-
-    if (email === savedEmail && password === savedPassword) {
-        showMessage("Autentificare reușită!", "green");
-        setTimeout(() => {
-            window.location.href = "3page.php"; 
-        }, 1000);
-    } else {
-        showMessage("Email sau parolă incorecte! Verifică datele sau înregistrează-te.");
-    }
+    fetch("users/login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+    })
+        .then(res => res.text())
+        .then(data => {
+            if (data === "success") {
+                showMessage("Autentificare reușită!", "green");
+                setTimeout(() => {
+                    window.location.href = "3page.php";
+                }, 1000);
+            } else {
+                showMessage(data); 
+            }
+        })
+        .catch(error => {
+            console.error("Eroare:", error);
+            showMessage("Eroare la conectare. Încearcă din nou.");
+        });
 });
 
 document.querySelectorAll("input").forEach(input => {
     input.addEventListener("input", function () {
         input.classList.remove("input-error");
-
-        let msgBox = document.getElementById("messageBox");
-        if (msgBox) {
-            msgBox.remove();
-        }
+        const msgBox = document.getElementById("messageBox");
+        if (msgBox) msgBox.remove();
     });
 });
